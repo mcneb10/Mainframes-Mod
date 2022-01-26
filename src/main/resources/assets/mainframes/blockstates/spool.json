@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=north,loaded=false": { "model": "mainframes:spool" },
+        "facing=south,loaded=false": { "model": "mainframes:spool", "y": 180 },
+        "facing=west,loaded=false":  { "model": "mainframes:spool", "y": 270 },
+        "facing=east,loaded=false":  { "model": "mainframes:spool", "y": 90 },
+		"facing=north,loaded=true": { "model": "mainframes:spoolfull" },
+        "facing=south,loaded=true": { "model": "mainframes:spoolfull", "y": 180 },
+        "facing=west,loaded=true":  { "model": "mainframes:spoolfull", "y": 270 },
+        "facing=east,loaded=true":  { "model": "mainframes:spoolfull", "y": 90 }
+	}
+}

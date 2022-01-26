@@ -1,0 +1,8 @@
+{
+	"variants": {
+		"facing=north": { "model": "mainframes:spoolbase" },
+        "facing=south": { "model": "mainframes:spoolbase", "y": 180 },
+        "facing=west":  { "model": "mainframes:spoolbase", "y": 270 },
+        "facing=east":  { "model": "mainframes:spoolbase", "y": 90 }
+	}
+}

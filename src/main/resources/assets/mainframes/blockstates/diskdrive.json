@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=north,loaded=false": { "model": "mainframes:diskdrive" },
+        "facing=south,loaded=false": { "model": "mainframes:diskdrive", "y": 180 },
+        "facing=west,loaded=false":  { "model": "mainframes:diskdrive", "y": 270 },
+        "facing=east,loaded=false":  { "model": "mainframes:diskdrive", "y": 90 },
+		"facing=north,loaded=true": { "model": "mainframes:diskdrivefull" },
+        "facing=south,loaded=true": { "model": "mainframes:diskdrivefull", "y": 180 },
+        "facing=west,loaded=true":  { "model": "mainframes:diskdrivefull", "y": 270 },
+        "facing=east,loaded=true":  { "model": "mainframes:diskdrivefull", "y": 90 }
+	}
+}

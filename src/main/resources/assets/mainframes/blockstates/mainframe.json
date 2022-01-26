@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=north,on=false": { "model": "mainframes:mainframe" },
+        "facing=south,on=false": { "model": "mainframes:mainframe", "y": 180 },
+        "facing=west,on=false":  { "model": "mainframes:mainframe", "y": 270 },
+        "facing=east,on=false":  { "model": "mainframes:mainframe", "y": 90 },
+		"facing=north,on=true": { "model": "mainframes:mainframeon" },
+        "facing=south,on=true": { "model": "mainframes:mainframeon", "y": 180 },
+        "facing=west,on=true":  { "model": "mainframes:mainframeon", "y": 270 },
+        "facing=east,on=true":  { "model": "mainframes:mainframeon", "y": 90 }
+	}
+}
