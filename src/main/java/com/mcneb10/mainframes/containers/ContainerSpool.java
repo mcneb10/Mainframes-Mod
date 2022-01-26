@@ -1,6 +1,7 @@
 package com.mcneb10.mainframes.containers;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.annotation.Nullable;
 
@@ -9,6 +10,7 @@ import com.mcneb10.mainframes.containers.slot.SpoolSlot;
 import com.mcneb10.mainframes.tileentities.TileEntitySpool;
 
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.inventory.ClickType;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
@@ -16,12 +18,12 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.tileentity.TileEntityFurnace;
+import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
 public class ContainerSpool extends Container {
-
 	private TileEntitySpool tileentity;
 	private IItemHandler handler;
 	public ContainerSpool(IInventory playerInv, TileEntitySpool te) {
@@ -111,5 +113,13 @@ public class ContainerSpool extends Container {
 
 	        return itemstack;
 	    }
-	 
+	 @Override
+	 public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player) {
+		 ItemStack result = super.slotClick(slotId, dragType, clickTypeIn, player);
+         if(!tileentity.getWorld().isRemote) tileentity.getWorld().setBlockState(tileentity.getPos(), tileentity.getWorld().getBlockState(tileentity.getPos()).withProperty(SpoolBlock.LOADED, new Random().nextBoolean()));
+         //TODO: Dirty hack
+         tileentity.getWorld().removeTileEntity(tileentity.getPos());
+         tileentity.getWorld().addTileEntity(tileentity);
+		 return result;
+	 }
 }
