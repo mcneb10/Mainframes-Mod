@@ -1,7 +1,7 @@
 package com.mcneb10.mainframes.tileentities;
 
 import com.mcneb10.mainframes.blocks.SpoolBlock;
-import com.mcneb10.mainframes.items.ReelItem;
+import com.mcneb10.mainframes.items.DiskItem;
 
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,9 +17,9 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class TileEntitySpool extends TileEntity implements ICapabilityProvider, ITickable{
+public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvider, ITickable{
 	private ItemStackHandler handler;
-	public TileEntitySpool() {
+	public TileEntityDiskDrive() {
 		this.handler = new ItemStackHandler(1);
 	}
 	@Override
@@ -80,7 +80,7 @@ public class TileEntitySpool extends TileEntity implements ICapabilityProvider, 
 		
 		if(this.handler.getStackInSlot(0)!=null) {
 			//something is in the slot
-			if(this.handler.getStackInSlot(0).getItem() instanceof ReelItem) this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(SpoolBlock.LOADED, true));
+			if(this.handler.getStackInSlot(0).getItem() instanceof DiskItem) this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(SpoolBlock.LOADED, true));
 		} else {
 			//nothing is in the slot
 			this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(SpoolBlock.LOADED, false));

@@ -1,12 +1,13 @@
-itemGroup.mainframetab=§4Mainframes
+itemGroup.mainframetab=ï¿½4Mainframes
 tile.spool.name=Reel to Reel Tape Drive
 tile.spoolbase.name=Tape Drive Base
 tile.diskdrive.name=Disk Drive
 tile.mainframe.name=Mainframe
 container.spool=Reel to Reel Tape Drive
+container.diskdrive=Disk Drive
 item.reel.name=Tape Reel
-item.disk.name=Hard Disk Platter Cartrige
-tooltip.reel=A storage medium used for transfering and storing programs
+item.disk.name=Hard Disk Platter Cartridge
+tooltip.reel=A storage medium used for transferring and storing programs
 tooltip.spool=A drive used for reading and writing Tape Reels
 tooltip.spoolbase=A block used to provide power to the Tape Drive
 tooltip.diskdrive=A drive used for reading and writing hard disk platters

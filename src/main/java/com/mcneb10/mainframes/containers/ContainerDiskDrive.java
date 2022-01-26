@@ -1,7 +1,7 @@
 package com.mcneb10.mainframes.containers;
 
-import com.mcneb10.mainframes.containers.slot.SpoolSlot;
-import com.mcneb10.mainframes.tileentities.TileEntitySpool;
+import com.mcneb10.mainframes.containers.slot.DiskDriveSlot;
+import com.mcneb10.mainframes.tileentities.TileEntityDiskDrive;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -11,13 +11,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-public class ContainerSpool extends Container {
-	//private TileEntitySpool tileentity;
+public class ContainerDiskDrive extends Container {
+	//private TileEntityDiskDrive tileentity;
 	private IItemHandler handler;
-	public ContainerSpool(IInventory playerInv, TileEntitySpool te) {
+	public ContainerDiskDrive(IInventory playerInv, TileEntityDiskDrive te) {
 		//this.tileentity = te;
 		handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-		this.addSlotToContainer(new SpoolSlot(te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 0, 80, 35));
+		this.addSlotToContainer(new DiskDriveSlot(te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 0, 80, 35));
 		int xPos = 8;
 		int yPos = 84;
 				

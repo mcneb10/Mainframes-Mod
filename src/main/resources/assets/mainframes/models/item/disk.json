@@ -1,7 +1,7 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"2": "minecraft:blocks/glass",
+		"2": "mainframes:block/glass",
 		"3": "mainframes:block/platter"
 	},
 	"elements": [
