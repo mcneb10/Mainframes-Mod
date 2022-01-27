@@ -1,6 +1,6 @@
 package com.mcneb10.mainframes.tileentities;
 
-import com.mcneb10.mainframes.blocks.SpoolBlock;
+import com.mcneb10.mainframes.blocks.DiskDriveBlock;
 import com.mcneb10.mainframes.items.DiskItem;
 
 import net.minecraft.block.state.IBlockState;
@@ -80,10 +80,10 @@ public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvid
 		
 		if(this.handler.getStackInSlot(0)!=null) {
 			//something is in the slot
-			if(this.handler.getStackInSlot(0).getItem() instanceof DiskItem) this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(SpoolBlock.LOADED, true));
+			if(this.handler.getStackInSlot(0).getItem() instanceof DiskItem) this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(DiskDriveBlock.LOADED, true));
 		} else {
 			//nothing is in the slot
-			this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(SpoolBlock.LOADED, false));
+			this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(DiskDriveBlock.LOADED, false));
 		}
 	}
 	@Override
