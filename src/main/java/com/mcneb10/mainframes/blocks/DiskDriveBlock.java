@@ -4,6 +4,7 @@ import com.mcneb10.mainframes.MainModClass;
 import com.mcneb10.mainframes.gui.GuiHandler;
 import com.mcneb10.mainframes.tileentities.TileEntityDiskDrive;
 
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyBool;
@@ -22,7 +23,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 
-public class DiskDriveBlock extends BaseBlock {
+public class DiskDriveBlock extends BaseBlock implements ITileEntityProvider {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	public static final PropertyBool LOADED = PropertyBool.create("loaded");
@@ -60,8 +61,6 @@ public class DiskDriveBlock extends BaseBlock {
 	}
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
-		// TODO Auto-generated method stub
-		System.out.println("Creating disk drive tile entity");
 		return new TileEntityDiskDrive();
 	}
 	@Override
@@ -80,4 +79,15 @@ public class DiskDriveBlock extends BaseBlock {
 		
 		return super.onBlockActivated(worldIn, pos, state, playerIn, hand, heldItem, side, hitX, hitY, hitZ);
 	}
+
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) {
+		return new TileEntityDiskDrive();
+	}
+	
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
+	
 }

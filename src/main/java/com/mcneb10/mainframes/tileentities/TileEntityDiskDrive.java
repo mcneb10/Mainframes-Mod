@@ -1,5 +1,8 @@
 package com.mcneb10.mainframes.tileentities;
 
+import org.apache.logging.log4j.Level;
+
+import com.mcneb10.mainframes.MainModClass;
 import com.mcneb10.mainframes.blocks.DiskDriveBlock;
 import com.mcneb10.mainframes.items.DiskItem;
 
@@ -19,18 +22,20 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvider, ITickable{
 	private ItemStackHandler handler;
+	private boolean loaded = false;;
 	public TileEntityDiskDrive() {
 		this.handler = new ItemStackHandler(1);
-		System.out.printf("Is handler null: %s\n", this.handler==null);
 	}
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		this.handler.deserializeNBT(compound.getCompoundTag("ISH"));
+		this.loaded = compound.getBoolean("LOADEDB");
 		super.readFromNBT(compound);
 	}
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		compound.setTag("ISH", this.handler.serializeNBT());
+		compound.setBoolean("LOADEDB", this.loaded);
 		return super.writeToNBT(compound);
 	}
 	
@@ -68,7 +73,6 @@ public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvid
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		System.out.printf("Capability name: %s\nIs handler null:%s\n",capability.getName(),handler==null);
 		if(capability==CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return (T) this.handler;
 		return super.getCapability(capability, facing);
 	}
@@ -81,11 +85,17 @@ public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvid
 	public void update() {
 		
 		if(this.handler.getStackInSlot(0)!=null) {
+			if (this.loaded) return;
 			//something is in the slot
-			if(this.handler.getStackInSlot(0).getItem() instanceof DiskItem) this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(DiskDriveBlock.LOADED, true));
+			if(this.handler.getStackInSlot(0).getItem() instanceof DiskItem) {
+				this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(DiskDriveBlock.LOADED, true));
+				this.loaded=true;
+			}
 		} else {
+			if (!this.loaded) return;
 			//nothing is in the slot
 			this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(DiskDriveBlock.LOADED, false));
+			this.loaded=false;
 		}
 	}
 	@Override

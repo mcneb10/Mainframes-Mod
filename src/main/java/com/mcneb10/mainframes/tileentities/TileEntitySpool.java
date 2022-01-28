@@ -19,17 +19,20 @@ import net.minecraftforge.items.ItemStackHandler;
 
 public class TileEntitySpool extends TileEntity implements ICapabilityProvider, ITickable{
 	private ItemStackHandler handler;
+	private boolean loaded = false;
 	public TileEntitySpool() {
 		this.handler = new ItemStackHandler(1);
 	}
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		this.handler.deserializeNBT(compound.getCompoundTag("ISH"));
+		this.loaded = compound.getBoolean("LOADEDB");
 		super.readFromNBT(compound);
 	}
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		compound.setTag("ISH", this.handler.serializeNBT());
+		compound.setBoolean("LOADEDB", this.loaded);
 		return super.writeToNBT(compound);
 	}
 	
@@ -79,11 +82,19 @@ public class TileEntitySpool extends TileEntity implements ICapabilityProvider, 
 	public void update() {
 		
 		if(this.handler.getStackInSlot(0)!=null) {
+			if (this.loaded) return;
 			//something is in the slot
-			if(this.handler.getStackInSlot(0).getItem() instanceof ReelItem) this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(SpoolBlock.LOADED, true));
+			if(this.handler.getStackInSlot(0).getItem() instanceof ReelItem) {
+				this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(SpoolBlock.LOADED, true));
+				this.loaded=true;
+				//play load sound
+			}
 		} else {
+			if (!this.loaded) return;
 			//nothing is in the slot
 			this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(SpoolBlock.LOADED, false));
+			this.loaded=false;
+			//play unload sound
 		}
 	}
 	@Override

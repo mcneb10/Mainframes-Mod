@@ -17,7 +17,6 @@ public class ContainerDiskDrive extends Container {
 	public ContainerDiskDrive(IInventory playerInv, TileEntityDiskDrive te) {
 		//this.tileentity = te;
 		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-		System.out.println("Is handler null: "+this.handler==null+"\n");
 		this.addSlotToContainer(new DiskDriveSlot(te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 0, 80, 35));
 		int xPos = 8;
 		int yPos = 84;
