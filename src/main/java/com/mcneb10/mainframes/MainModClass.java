@@ -30,6 +30,7 @@ public class MainModClass {
 	public void preInit(FMLPreInitializationEvent event) {
 		logger = org.apache.logging.log4j.LogManager.getFormatterLogger(CONSTS.MODID);
 		logger.info("PreInit");
+		logger.info("Mainframe name: "+Utils.getInstance().generateNewMainframeName());
 		tab = new MainframeTab(CreativeTabs.getNextID(), "mainframetab");
 		ModItems.preInit();
 		ModBlocks.preInit();
