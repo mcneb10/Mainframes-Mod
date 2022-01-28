@@ -61,6 +61,7 @@ public class DiskDriveBlock extends BaseBlock {
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
 		// TODO Auto-generated method stub
+		System.out.println("Creating disk drive tile entity");
 		return new TileEntityDiskDrive();
 	}
 	@Override

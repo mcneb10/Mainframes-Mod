@@ -1,6 +1,9 @@
 package com.mcneb10.mainframes;
 
 
+import java.util.logging.LogManager;
+
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
 import com.mcneb10.mainframes.blocks.ModBlocks;
@@ -25,7 +28,8 @@ public class MainModClass {
 	public static Logger logger;
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		logger = event.getModLog();
+		logger = org.apache.logging.log4j.LogManager.getFormatterLogger(CONSTS.MODID);
+		logger.info("PreInit");
 		tab = new MainframeTab(CreativeTabs.getNextID(), "mainframetab");
 		ModItems.preInit();
 		ModBlocks.preInit();
@@ -34,10 +38,12 @@ public class MainModClass {
 	}
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		logger.info("Init");
 		proxy.init(event);
 	}
 	@EventHandler
 	public void postInit(FMLPostInitializationEvent event) {
+		logger.info("PostInits");
 		proxy.postInit(event);
 	}
 }

@@ -16,7 +16,8 @@ public class ContainerDiskDrive extends Container {
 	private IItemHandler handler;
 	public ContainerDiskDrive(IInventory playerInv, TileEntityDiskDrive te) {
 		//this.tileentity = te;
-		handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
+		System.out.println("Is handler null: "+this.handler==null+"\n");
 		this.addSlotToContainer(new DiskDriveSlot(te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 0, 80, 35));
 		int xPos = 8;
 		int yPos = 84;
@@ -30,39 +31,7 @@ public class ContainerDiskDrive extends Container {
 		for (int x = 0; x < 9; ++x) {
 			this.addSlotToContainer(new Slot(playerInv, x, xPos + x * 18, yPos + 58));
 		}
-		/*
-		this.addListener(new IContainerListener() {
-			
-			
-			
-			@Override
-			public void updateCraftingInventory(Container containerToSend, List<ItemStack> itemsList) {
-				
-			}
-			
-			@Override
-			public void sendSlotContents(Container containerToSend, int slotInd, ItemStack stack) {
-				if (stack == null) { 
-					tileentity.getWorld().setBlockState(tileentity.getPos(), tileentity.getWorld().getBlockState(tileentity.getPos()).withProperty(SpoolBlock.LOADED, false));
-					return;
-				}
-				if(stack.stackSize > 0&&stack.getItem() instanceof ReelItem) {
-						tileentity.getWorld().setBlockState(tileentity.getPos(), tileentity.getWorld().getBlockState(tileentity.getPos()).withProperty(SpoolBlock.LOADED, true));
-						return;
-				}
-				tileentity.getWorld().setBlockState(tileentity.getPos(), tileentity.getWorld().getBlockState(tileentity.getPos()).withProperty(SpoolBlock.LOADED, false));
-			}
-			
-			@Override
-			public void sendProgressBarUpdate(Container containerIn, int varToUpdate, int newValue) {
 
-			}
-			
-			@Override
-			public void sendAllWindowProperties(Container containerIn, IInventory inventory) {
-
-			}
-		});*/
 	}
 	
 	@Override
@@ -104,15 +73,5 @@ public class ContainerDiskDrive extends Container {
 
 	        return itemstack;
 	    }
-	 /*
-	 @Override
-	 public ItemStack slotClick(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player) {
-		 ItemStack result = super.slotClick(slotId, dragType, clickTypeIn, player);
-         if(!tileentity.getWorld().isRemote) tileentity.getWorld().setBlockState(tileentity.getPos(), tileentity.getWorld().getBlockState(tileentity.getPos()).withProperty(SpoolBlock.LOADED, new Random().nextBoolean()));
-         //TODO: Dirty hack
-         tileentity.getWorld().removeTileEntity(tileentity.getPos());
-         tileentity.getWorld().addTileEntity(tileentity);
-		 return result;
-	 }
-	 */
+
 }

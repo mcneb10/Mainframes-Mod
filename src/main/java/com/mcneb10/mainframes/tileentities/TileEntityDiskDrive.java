@@ -21,6 +21,7 @@ public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvid
 	private ItemStackHandler handler;
 	public TileEntityDiskDrive() {
 		this.handler = new ItemStackHandler(1);
+		System.out.printf("Is handler null: %s\n", this.handler==null);
 	}
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
@@ -67,6 +68,7 @@ public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvid
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
+		System.out.printf("Capability name: %s\nIs handler null:%s\n",capability.getName(),handler==null);
 		if(capability==CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) return (T) this.handler;
 		return super.getCapability(capability, facing);
 	}
