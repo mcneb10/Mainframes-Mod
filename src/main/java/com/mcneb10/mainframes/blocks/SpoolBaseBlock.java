@@ -45,4 +45,9 @@ public class SpoolBaseBlock extends BaseBlock {
 		// TODO Auto-generated method stub
 		return new BlockStateContainer(this, FACING);
 	}
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

@@ -1,9 +1,6 @@
 package com.mcneb10.mainframes;
 
 
-import java.util.logging.LogManager;
-
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.Logger;
 
 import com.mcneb10.mainframes.blocks.ModBlocks;
