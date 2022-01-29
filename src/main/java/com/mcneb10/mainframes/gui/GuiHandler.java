@@ -14,6 +14,7 @@ public class GuiHandler implements IGuiHandler {
 
 	public static final int SPOOL = 0;
 	public static final int DISKDRIVE = 1;
+	public static final int MANUAL = 2;
 	
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -33,6 +34,8 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiSpool(player.inventory, (TileEntitySpool)world.getTileEntity(new BlockPos(x, y, z)));
 		case DISKDRIVE:
 			return new GuiDiskDrive(player.inventory, (TileEntityDiskDrive)world.getTileEntity(new BlockPos(x, y, z)));
+		case MANUAL:
+			return new GuiManual();
 		}
 		return null;
 	}

@@ -13,7 +13,7 @@ public class Utils {
 	private static Random random = new Random();
 	public Utils() {
 		int index = 0;
-		words = new String[31];
+		words = new String[32];
 		try {
 			InputStream stream = getClass().getResourceAsStream("names.txt");
 			InputStreamReader reader = new InputStreamReader(stream);

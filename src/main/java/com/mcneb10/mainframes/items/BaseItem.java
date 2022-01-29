@@ -16,7 +16,7 @@ public BaseItem(String name) {
 }
 @Override
 public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-	for(String line:I18n.format("tooltip.reel").split("\n")) {
+	for(String line:I18n.format("tooltip."+this.getUnlocalizedName().substring(5)).split("\n")) {
 		tooltip.add(line);
 	}		
 }

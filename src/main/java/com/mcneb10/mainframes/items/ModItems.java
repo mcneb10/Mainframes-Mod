@@ -11,11 +11,14 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class ModItems {
 	public static Item reel;
 	public static Item disk;
+	public static Item manual;
 	public static void preInit() {
 		reel = new ReelItem("reel");
 		disk = new DiskItem("disk");
+		manual = new ManualItem("manual");
 		registerItem(reel, "reel");
 		registerItem(disk, "disk");
+		registerItem(manual, "manual");
 	}
 	public static void registerItem(Item item, String name) {
 		GameRegistry.register(item, new ResourceLocation(CONSTS.MODID, name));
@@ -23,6 +26,7 @@ public class ModItems {
 	public static void registerRenders() {
 		registerRender(reel);
 		registerRender(disk);
+		registerRender(manual);
 	}
 	public static void registerRender(Item item) {
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(CONSTS.MODID+":"+item.getUnlocalizedName().substring(5), "inventory"));
