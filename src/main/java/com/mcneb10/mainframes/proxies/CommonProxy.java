@@ -8,7 +8,6 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-import scala.tools.nsc.typechecker.ContextErrors.SymbolTypeError;
 
 public class CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) {
@@ -21,7 +20,6 @@ public class CommonProxy {
 	
 	}
 	public void registerTileEntities() {
-		System.out.println("Registering tileentities");
 		GameRegistry.registerTileEntity(TileEntitySpool.class, CONSTS.MODID+":spool");
 		GameRegistry.registerTileEntity(TileEntityDiskDrive.class, CONSTS.MODID+":diskdrive");
 	}

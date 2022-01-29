@@ -1,8 +1,5 @@
 package com.mcneb10.mainframes.tileentities;
 
-import org.apache.logging.log4j.Level;
-
-import com.mcneb10.mainframes.MainModClass;
 import com.mcneb10.mainframes.blocks.DiskDriveBlock;
 import com.mcneb10.mainframes.items.DiskItem;
 
