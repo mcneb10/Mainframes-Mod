@@ -1,4 +1,4 @@
-itemGroup.mainframetab=Mainframes
+itemGroup.mainframetab=%1$sMainframes%2$s
 tile.spool.name=Reel to Reel Tape Drive
 tile.spoolbase.name=Tape Drive Base
 tile.diskdrive.name=Disk Drive
@@ -8,10 +8,15 @@ container.diskdrive=Disk Drive
 item.reel.name=Tape Reel
 item.disk.name=Hard Disk Platter Cartridge
 item.manual.name=Mainframe Manual
+item.debugger.name=Debugger
 tooltip.reel=A storage medium used for transferring and storing programs
 tooltip.spool=A drive used for reading and writing Tape Reels
 tooltip.spoolbase=A block used to provide power to the Tape Drive
 tooltip.diskdrive=A drive used for reading and writing hard disk platters
 tooltip.disk=A storage medium used for mass storage
 tooltip.mainframe=WIP
+menu.debugger.error=%1$sError%2$s: %s
+menu.debugger.noerror=%1$sNo Error%2$s
+
+
 book.manual.page1=Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic

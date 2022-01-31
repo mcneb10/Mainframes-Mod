@@ -2,7 +2,6 @@ package com.mcneb10.mainframes.gui;
 
 import com.mcneb10.mainframes.CONSTS;
 
-import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
