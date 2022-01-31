@@ -33,5 +33,6 @@ public class ReelItem extends BaseItem {
 			nbt.setString("ID", id);
 			tooltip.add("ID: "+id);
 		}
+		stack.setTagCompound(nbt);
 	}
 }
