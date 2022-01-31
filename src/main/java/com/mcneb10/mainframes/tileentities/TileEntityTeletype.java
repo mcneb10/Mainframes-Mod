@@ -1,6 +1,6 @@
 package com.mcneb10.mainframes.tileentities;
 
-import com.mcneb10.mainframes.blocks.DiskDriveBlock;
+import com.mcneb10.mainframes.blocks.TeletypeBlock;
 import com.mcneb10.mainframes.items.DiskItem;
 
 import net.minecraft.block.state.IBlockState;
@@ -17,11 +17,11 @@ import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 
-public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvider, ITickable{
+public class TileEntityTeletype extends TileEntity implements ICapabilityProvider, ITickable {
 	private ItemStackHandler handler;
 	private boolean loaded = false;
-	public TileEntityDiskDrive() {
-		this.handler = new ItemStackHandler(1);
+	public TileEntityTeletype() {
+		this.handler = new ItemStackHandler(2);
 	}
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
@@ -35,7 +35,7 @@ public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvid
 		compound.setBoolean("LOADEDB", this.loaded);
 		return super.writeToNBT(compound);
 	}
-	
+
 	@Override
 	public SPacketUpdateTileEntity getUpdatePacket() {
 		NBTTagCompound nbt = new NBTTagCompound();
@@ -67,6 +67,10 @@ public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvid
 		this.writeToNBT(nbt);
 		return nbt;
 	}
+	@Override
+	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
+		return (oldState.getBlock() != newSate.getBlock());
+	}
 	@SuppressWarnings("unchecked")
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
@@ -85,18 +89,14 @@ public class TileEntityDiskDrive extends TileEntity implements ICapabilityProvid
 			if (this.loaded) return;
 			//something is in the slot
 			if(this.handler.getStackInSlot(0).getItem() instanceof DiskItem) {
-				this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(DiskDriveBlock.LOADED, true));
+				this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(TeletypeBlock.LOADED, true));
 				this.loaded=true;
 			}
 		} else {
 			if (!this.loaded) return;
 			//nothing is in the slot
-			this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(DiskDriveBlock.LOADED, false));
+			this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(TeletypeBlock.LOADED, false));
 			this.loaded=false;
 		}
-	}
-	@Override
-	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
-		return (oldState.getBlock() != newSate.getBlock());
 	}
 }

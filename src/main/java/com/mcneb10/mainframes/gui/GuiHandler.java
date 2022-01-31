@@ -2,8 +2,10 @@ package com.mcneb10.mainframes.gui;
 
 import com.mcneb10.mainframes.containers.ContainerDiskDrive;
 import com.mcneb10.mainframes.containers.ContainerSpool;
+import com.mcneb10.mainframes.containers.ContainerTeletype;
 import com.mcneb10.mainframes.tileentities.TileEntityDiskDrive;
 import com.mcneb10.mainframes.tileentities.TileEntitySpool;
+import com.mcneb10.mainframes.tileentities.TileEntityTeletype;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
@@ -15,6 +17,7 @@ public class GuiHandler implements IGuiHandler {
 	public static final int SPOOL = 0;
 	public static final int DISKDRIVE = 1;
 	public static final int MANUAL = 2;
+	public static final int TELETYPE = 3;
 	
 	@Override
 	public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
@@ -23,6 +26,8 @@ public class GuiHandler implements IGuiHandler {
 			return new ContainerSpool(player.inventory, (TileEntitySpool)world.getTileEntity(new BlockPos(x, y, z)));
 		case DISKDRIVE:
 			return new ContainerDiskDrive(player.inventory, (TileEntityDiskDrive)world.getTileEntity(new BlockPos(x, y, z)));
+		case TELETYPE:
+			return new ContainerTeletype(player.inventory, (TileEntityTeletype)world.getTileEntity(new BlockPos(x,y,z)));
 		}
 		return null;
 	}
@@ -36,6 +41,8 @@ public class GuiHandler implements IGuiHandler {
 			return new GuiDiskDrive(player.inventory, (TileEntityDiskDrive)world.getTileEntity(new BlockPos(x, y, z)));
 		case MANUAL:
 			return new GuiManual();
+		case TELETYPE:
+			return new GuiTeletype(player.inventory, (TileEntityTeletype)world.getTileEntity(new BlockPos(x,y,z)));
 		}
 		return null;
 	}

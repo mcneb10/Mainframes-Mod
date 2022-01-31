@@ -1,6 +1,7 @@
 package com.mcneb10.mainframes.blocks;
 
 import com.mcneb10.mainframes.CONSTS;
+import com.mcneb10.mainframes.items.itemblock.MainframeItemBlock;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -15,18 +16,26 @@ public class ModBlocks {
 	public static Block spoolbase;
 	public static Block diskdrive;
 	public static Block mainframe;
+	public static Block teletype;
 	public static void preInit() {
 		spool = new SpoolBlock("spool");
 		spoolbase = new SpoolBaseBlock("spoolbase");
 		diskdrive = new DiskDriveBlock("diskdrive");
 		mainframe = new MainframeBlock("mainframe");
+		teletype = new TeletypeBlock("teletype");
 		registerBlocks();
 	}
 	public static void registerBlocks() {
 		registerBlock(spool, "spool");
 		registerBlock(spoolbase, "spoolbase");
 		registerBlock(diskdrive, "diskdrive");
-		registerBlock(mainframe, "mainframe");
+		//registerBlock(mainframe, "mainframe");
+		//register mainframe
+		GameRegistry.register(mainframe, new ResourceLocation(CONSTS.MODID, "mainframe"));
+		MainframeItemBlock ib = new MainframeItemBlock(mainframe);
+		GameRegistry.register(ib, new ResourceLocation(CONSTS.MODID, "mainframe"));
+		//end register mainframe
+		registerBlock(teletype, "teletype");
 	}
 	public static void registerBlock(Block block, String name) {
 		GameRegistry.register(block, new ResourceLocation(CONSTS.MODID, name));
@@ -38,6 +47,7 @@ public class ModBlocks {
 		registerRender(spoolbase);
 		registerRender(diskdrive);
 		registerRender(mainframe);
+		registerRender(teletype);
 	}
 	public static void registerRender(Block block) {
 		Item item = Item.getItemFromBlock(block);

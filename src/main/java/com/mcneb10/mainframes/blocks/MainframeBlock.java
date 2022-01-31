@@ -2,11 +2,14 @@ package com.mcneb10.mainframes.blocks;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import com.google.common.collect.ImmutableMap;
 import com.mcneb10.mainframes.Utils;
+import com.mcneb10.mainframes.tileentities.TileEntityMainframe;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.EnumPushReaction;
 import net.minecraft.block.material.MapColor;
@@ -21,6 +24,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -33,7 +37,7 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class MainframeBlock extends BaseBlock {
+public class MainframeBlock extends BaseBlock implements ITileEntityProvider {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 	public static final PropertyBool ON = PropertyBool.create("on");
@@ -85,4 +89,13 @@ public boolean isOpaqueCube(IBlockState state) {
 	// TODO Auto-generated method stub
 	return false;
 }
+@Override
+public TileEntity createNewTileEntity(World worldIn, int meta) {
+	return new TileEntityMainframe();
+}
+@Override
+public TileEntity createTileEntity(World world, IBlockState state) {
+	return new TileEntityMainframe();
+}
+
 }
