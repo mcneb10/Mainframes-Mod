@@ -17,6 +17,8 @@ tooltip.spoolbase=A block used to provide power to the Tape Drive
 tooltip.diskdrive=A drive used for reading and writing hard disk platters
 tooltip.disk=A storage medium used for mass storage
 tooltip.mainframe=WIP
+tooltip.manual=A manual for mainframes
+tooltip.debugger=A device that allows you to read pipes from a mainframe without a screen
 menu.debugger.error=%1$sError%2$s: %s
 menu.debugger.noerror=%1$sNo Error%2$s
 
