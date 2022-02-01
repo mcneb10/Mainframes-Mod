@@ -14,12 +14,10 @@ public class MainframeTab extends CreativeTabs {
 	}
 	@Override
 	public Item getTabIconItem() {
-		// TODO Auto-generated method stub
 		return Item.getItemFromBlock(ModBlocks.spool);
 	}
 	@Override
 	public String getTranslatedTabLabel() {
-		// TODO Auto-generated method stub
 		return I18n.format("itemGroup.mainframetab", TextFormatting.DARK_RED, TextFormatting.RESET);
 	}
 }

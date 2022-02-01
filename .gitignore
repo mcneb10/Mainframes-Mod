@@ -21,3 +21,16 @@ build
 eclipse
 run
 .DS_Store
+saves
+config
+run.sh
+usercache.json
+usernamecache.json
+options.txt
+logs
+CREDITS-fml.txt
+options.txt
+forge-1.10.2-12.18.3.2511-changelog.txt
+Paulscode SoundSystem CodecIBXM License.txt
+Paulscode IBXM Library License.txt
+LICENSE-new.txt
