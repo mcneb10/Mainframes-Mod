@@ -21,3 +21,10 @@ build
 eclipse
 run
 .DS_Store
+saves
+config
+run.sh
+usercache.json
+usernamecache.json
+options.txt
+logs
