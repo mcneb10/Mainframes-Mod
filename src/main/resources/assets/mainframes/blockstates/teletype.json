@@ -1,0 +1,12 @@
+{
+	"variants": {
+		"facing=north,loaded=false": { "model": "mainframes:teletype" },
+        "facing=south,loaded=false": { "model": "mainframes:teletype", "y": 180 },
+        "facing=west,loaded=false":  { "model": "mainframes:teletype", "y": 270 },
+        "facing=east,loaded=false":  { "model": "mainframes:teletype", "y": 90 },
+		"facing=north,loaded=true": { "model": "mainframes:teletypefull" },
+        "facing=south,loaded=true": { "model": "mainframes:teletypefull", "y": 180 },
+        "facing=west,loaded=true":  { "model": "mainframes:teletypefull", "y": 270 },
+        "facing=east,loaded=true":  { "model": "mainframes:teletypefull", "y": 90 }
+	}
+}
