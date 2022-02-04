@@ -32,5 +32,6 @@ public class GuiTeletype extends GuiContainer {
 		String s = I18n.format("container.teletype"); 
 		this.mc.fontRendererObj.drawString(s, this.xSize / 2 - this.mc.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
 		this.mc.fontRendererObj.drawString(this.playerInv.getDisplayName().getFormattedText(), 8, 72, 4210752);
+		this.mc.fontRendererObj.drawSplitString("Teletype stuff", 9, 22, 127, 4210752);
 	}
 }
