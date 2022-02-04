@@ -1,9 +1,12 @@
 package com.mcneb10.mainframes.gui;
 
+import java.util.UUID;
+
 import com.mcneb10.mainframes.CONSTS;
 import com.mcneb10.mainframes.containers.ContainerTeletype;
 import com.mcneb10.mainframes.tileentities.TileEntityTeletype;
 
+import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.resources.I18n;
@@ -12,13 +15,14 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuiTeletype extends GuiContainer {
 
-	//private TileEntityDiskDrive te;
+	private TileEntityTeletype te;
 	private IInventory playerInv;
+	public String teletypetext;
 	public GuiTeletype(IInventory playerInv, TileEntityTeletype te) {
 		super(new ContainerTeletype(playerInv, te));
 		this.xSize=176;
 		this.ySize=166;
-		//this.te = te;
+		this.te = te;
 		this.playerInv = playerInv;
 	}
 	@Override
@@ -30,8 +34,9 @@ public class GuiTeletype extends GuiContainer {
 	@Override
 	protected void drawGuiContainerForegroundLayer(int mouseX, int mouseY) {
 		String s = I18n.format("container.teletype"); 
+		teletypetext = UUID.randomUUID().toString();
 		this.mc.fontRendererObj.drawString(s, this.xSize / 2 - this.mc.fontRendererObj.getStringWidth(s) / 2, 6, 4210752);
-		this.mc.fontRendererObj.drawString(this.playerInv.getDisplayName().getFormattedText(), 8, 72, 4210752);
-		this.mc.fontRendererObj.drawSplitString("Teletype stuff", 9, 22, 127, 4210752);
+		this.mc.fontRendererObj.drawString(this.playerInv.getDisplayName().getFormattedText(), 8, 72, 4210752);	
+		this.mc.fontRendererObj.drawSplitString(teletypetext, 9, 22, 127, 4210752);
 	}
 }
