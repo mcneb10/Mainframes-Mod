@@ -84,7 +84,7 @@ public class TileEntityTeletype extends TileEntity implements ICapabilityProvide
 	}
 	@Override
 	public void update() {
-		
+		/*
 		if(this.handler.getStackInSlot(0)!=null) {
 			if (this.loaded) return;
 			//something is in the slot
@@ -97,6 +97,6 @@ public class TileEntityTeletype extends TileEntity implements ICapabilityProvide
 			//nothing is in the slot
 			this.getWorld().setBlockState(pos, this.getWorld().getBlockState(pos).withProperty(TeletypeBlock.LOADED, false));
 			this.loaded=false;
-		}
+		}*/
 	}
 }

@@ -18,8 +18,8 @@ public class ContainerTeletype extends Container {
 	public ContainerTeletype(IInventory playerInv, TileEntityTeletype te) {
 		//this.tileentity = te;
 		this.handler = te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null);
-		this.addSlotToContainer(new TeletypePaperSlot(te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 0, 120, 15));
-		this.addSlotToContainer(new TeletypeInkSlot(te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null),1,120,35));
+		this.addSlotToContainer(new TeletypePaperSlot(te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null), 0, 146, 16));
+		this.addSlotToContainer(new TeletypeInkSlot(te.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null),1,146,36));
 		int xPos = 8;
 		int yPos = 84;
 				

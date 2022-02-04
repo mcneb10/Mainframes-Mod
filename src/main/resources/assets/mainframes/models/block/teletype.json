@@ -1,11 +1,10 @@
 {
 	"credit": "Made with Blockbench",
 	"parent": "block/orientable",
-	"texture_size": [32, 32],
 	"textures": {
-		"0": "minecraft:blocks/iron",
+		"0": "blocks/iron_block",
 		"1": "mainframes:block/keyboard",
-		"particle": "minecraft:block/iron"
+		"particle": "blocks/iron_block"
 	},
 	"elements": [
 		{
@@ -24,12 +23,12 @@
 			"from": [1, 8, 1],
 			"to": [15, 9, 6],
 			"faces": {
-				"north": {"uv": [0, 0, 7, 0.5], "texture": "#1"},
-				"east": {"uv": [0, 0, 2.5, 0.5], "texture": "#1"},
-				"south": {"uv": [0, 0, 7, 0.5], "texture": "#1"},
-				"west": {"uv": [0, 0, 2.5, 0.5], "texture": "#1"},
-				"up": {"uv": [16, 16, 0, 0], "texture": "#1"},
-				"down": {"uv": [0, 0, 4.33333, 0.97619], "texture": "#1"}
+				"north": {"uv": [8.25, 1, 8.75, 1.5], "texture": "#1"},
+				"east": {"uv": [8.25, 1, 8.75, 1.75], "texture": "#1"},
+				"south": {"uv": [8.25, 1.5, 9, 2], "texture": "#1"},
+				"west": {"uv": [8.25, 1.25, 9, 1.75], "texture": "#1"},
+				"up": {"uv": [10.5, 3.75, 0, 0], "texture": "#1"},
+				"down": {"uv": [8.25, 0.75, 8.832, 1.475], "texture": "#1"}
 			}
 		},
 		{

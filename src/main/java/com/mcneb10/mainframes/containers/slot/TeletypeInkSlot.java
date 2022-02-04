@@ -29,7 +29,7 @@ public class TeletypeInkSlot extends SlotItemHandler {
 	
 	@Override
    	public int getItemStackLimit(ItemStack stack) {
-		return 1;
+		return 64;
 	}
 
 }
