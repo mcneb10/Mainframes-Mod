@@ -1,9 +1,11 @@
 package com.mcneb10.mainframes.tileentities;
 
 import com.mcneb10.mainframes.blocks.TeletypeBlock;
+import com.mcneb10.mainframes.interfaces.PipeProvider;
 import com.mcneb10.mainframes.items.DiskItem;
 
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
@@ -20,19 +22,28 @@ import net.minecraftforge.items.ItemStackHandler;
 public class TileEntityTeletype extends TileEntity implements ICapabilityProvider, ITickable {
 	private ItemStackHandler handler;
 	private boolean loaded = false;
+	public PipeProvider pipeProvider;
+	public String currentPipe;
 	public TileEntityTeletype() {
 		this.handler = new ItemStackHandler(2);
+		this.pipeProvider = new PipeProvider();
+		this.currentPipe = "output";
+		this.pipeProvider.addPipe("output");
+		this.pipeProvider.addPipe("error");
+		this.pipeProvider.addPipe("input");
 	}
 	@Override
 	public void readFromNBT(NBTTagCompound compound) {
 		this.handler.deserializeNBT(compound.getCompoundTag("ISH"));
 		this.loaded = compound.getBoolean("LOADEDB");
+		this.currentPipe = compound.getString("CURRENTPIPE");
 		super.readFromNBT(compound);
 	}
 	@Override
 	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
 		compound.setTag("ISH", this.handler.serializeNBT());
 		compound.setBoolean("LOADEDB", this.loaded);
+		compound.setString("CURRENTPIPE", currentPipe);
 		return super.writeToNBT(compound);
 	}
 
@@ -84,6 +95,7 @@ public class TileEntityTeletype extends TileEntity implements ICapabilityProvide
 	}
 	@Override
 	public void update() {
+		
 		/*
 		if(this.handler.getStackInSlot(0)!=null) {
 			if (this.loaded) return;
